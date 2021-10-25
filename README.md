@@ -1,16 +1,8 @@
-# activity_app_flutter
+A simple one page Flutter mobile application which suggests a random activity. The app uses Bored API to get data about an activity.
 
-A new Flutter project.
+In order to run the application:
+1. Make sure you have Flutter dependencies on your system AND mobile emulator/real device debugging enabled.
+2. Download the repository.
+3. Open terminal in root folder and run the command 'flutter run'.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
