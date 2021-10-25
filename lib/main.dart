@@ -33,9 +33,7 @@ class _DataFromAPIState extends State<DataFromAPI> {
     var data = jsonDecode(response.body);
     Activity activity =
         Activity(data["activity"], data["type"], data["participants"]);
-    print(activity.activity);
-    print(activity.type);
-    print(activity.participants);
+    return activity;
   }
 
   @override
@@ -45,11 +43,40 @@ class _DataFromAPIState extends State<DataFromAPI> {
           title: const Text("Suggest an Activity"),
         ),
         body: Center(
-          child: ElevatedButton(
-            child: const Text("Get Activity"),
-            onPressed: () {
-              getActivity();
-            },
+          child: Column(
+            children: [
+              FutureBuilder<dynamic>(
+                future: getActivity(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(
+                      child: Text("Fetching Activity..."),
+                    );
+                  } else if (snapshot.hasError) {
+                    return const Center(
+                      child: Text("Error!"),
+                    );
+                  } else {
+                    return Center(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(snapshot.data.activity),
+                        Text(snapshot.data.type),
+                        Text(snapshot.data.participants.toString()),
+                      ],
+                    ));
+                  }
+                },
+              ),
+              // ElevatedButton(
+              //   child: const Text("Get Activity"),
+              //   onPressed: () {
+              //     getActivity();
+              //   },
+              // ),
+            ],
           ),
         ));
   }
