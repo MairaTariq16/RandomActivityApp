@@ -6,3 +6,5 @@ In order to run the application:
 3. Open terminal in root folder and run the command 'flutter run'.
 
 
+Future features:
+1. Select activity based on categories, participants, accessibility and/or cost.
